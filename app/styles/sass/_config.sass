@@ -1,0 +1,103 @@
+// USER VARIABLES SECTION
+
+$accent: #ecb355 // Accent Color
+$blue: #007bff
+$indigo: #6610f2
+$purple: #6f42c1
+$light-purple: #4555b9
+$pink: #e83e8c
+$red: #dc3545
+$orange: #fd7e14
+$yellow: #ffc107
+$green: #28a745
+$teal: #20c997
+$cyan: #17a2b8
+$white: #f1f4fc
+$gray: #868e96
+$gray-dark: #343a40
+$main-bg: #0f111e
+
+$fontsize: 16px // Body Font Size
+$textcolor: #737373 // Text Color
+$lineheight: 1.65 // Document Line Height
+$userfont: Roboto, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$desctop-width: 1124px
+$tablet-width: 767px
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+$grid-breakpoints: (xs: 0, sm: 540px, md: 720px, lg: 960px, xl: 1200px, xxl: 1800px)
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px, xxl: 1800px)
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+@import 'node_modules/bootstrap/scss/_variables.scss' // Optional Bootstrap variable
+@import 'node_modules/bootstrap/scss/helpers/_visually-hidden.scss' // Optional Bootstrap Tables
+
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+		font-display: swap
+
+@include font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2')
+@include font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2')
+@include font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2')
+@include font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+:root
+	--swiper-theme-color: #ecb355
+
+html
+	overflow-x: hidden
+
+body
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	min-height: 100vh
+	position: relative
+	overflow-x: hidden
+
+	img
+		max-width: 100%
+		height: auto
+
+	a
+		text-decoration: none
+
+	.accent
+		color: $accent

@@ -1,0 +1,41 @@
+<header class="header">
+  <div class="header__wrapper">
+    <button class="nav-toogle">
+      <span class="toggle-icon"></span>
+    </button>
+
+    <a href='<!--#echo var="logolink" -->'>
+      <img class="logo" src="images/dist/logo.png" width="150" height="75" alt="Наши люди логотип" />
+    </a>
+
+    <button class="nav-toogle info-toogle">
+      <span class="toggle-icon"></span>
+    </button>
+  </div>
+  <nav class="main-nav">
+    <div class="main-nav__logo">
+      <a href='<!--#echo var="logolink" -->'>
+        <img class="logo" src="images/dist/logo.png" width="150" height="75" alt="Logo Ultimate" />
+      </a>
+    </div>
+    <ul class="main-nav__list" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <li class="main-nav__item">
+        <a itemprop="url" href='#about'>О нас</a>
+      </li>
+      <li class="main-nav__item">
+        <a itemprop="url" class="main-nav__link" href='#services'>
+          Услуги
+        </a>
+      </li>
+      <li class="main-nav__item">
+        <a itemprop="url" href="#features">Преимущества</a>
+      </li>
+      <li class="main-nav__item">
+        <a itemprop="url" href="#reviews">Отзывы</a>
+      </li>
+      <li class="main-nav__item">
+        <a itemprop="url" href="#contacts">Контакты</a>
+      </li>
+    </ul>
+  </nav>
+</header>

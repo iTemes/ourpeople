@@ -1,0 +1,41 @@
+.about {
+  padding: 50px 0;
+  background-color: #ffffff;
+
+  &__item {
+    margin-bottom: 60px;
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+    transition: 0.45s ease-in-out;
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+
+    &.active {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+    .title {
+      text-align: center;
+      font-weight: 600;
+
+      svg {
+        margin-left: 25px;
+
+        @include media-breakpoint-up(lg) {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+      max-width: 650px;
+
+      font-size: 1.2rem;
+    }
+  }
+}

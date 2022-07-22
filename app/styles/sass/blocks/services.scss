@@ -1,0 +1,14 @@
+.services {
+  padding: 25px 0;
+  background-color: $main-bg;
+  color: #ffffff;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  &__item {
+    margin-bottom: 30px;
+  }
+}

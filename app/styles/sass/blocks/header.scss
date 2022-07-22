@@ -1,0 +1,335 @@
+.header {
+  position: relative;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+}
+
+.header__wrapper {
+  position: fixed;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: $main-bg;
+
+  @include media-breakpoint-up(lg) {
+    position: static;
+    justify-content: center;
+    background-color: transparent;
+
+    display: none;
+  }
+}
+
+.logo {
+  max-width: 150px;
+  @include media-breakpoint-up(lg) {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.toggle-icon {
+  position: relative;
+
+  display: block;
+  margin: auto;
+  width: 30px;
+  height: 5px;
+
+  background-color: #fff;
+  backface-visibility: hidden;
+}
+
+.nav-toogle {
+  position: relative;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+
+  line-height: 50px;
+
+  background: none;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+
+  &.open {
+    .toggle-icon {
+      background: $main-bg;
+      transition: background 0.3s 0s;
+      &::after {
+        top: 0px;
+        transform: rotate(45deg);
+        transition: top 0.3s 0s, transform 0.3s 0.3s;
+
+        background-color: $accent;
+      }
+
+      &::before {
+        top: 0px;
+        transform: rotate(-45deg);
+        transition: top 0.3s 0s, transform 0.3s 0.3s;
+
+        background-color: $accent;
+      }
+    }
+  }
+
+  .toggle-icon {
+    transition: background 0.3s 0.3s;
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+
+      width: 30px;
+      height: 5px;
+      background-color: #fff;
+      backface-visibility: hidden;
+      transition: top 0.3s 0.3s, transform 0.3s 0s;
+    }
+
+    &::after {
+      top: 10px;
+    }
+
+    &::before {
+      top: -10px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.info-toogle {
+  &.open {
+    .toggle-icon {
+      &::after,
+      &::before {
+        top: 0px;
+        left: -10px;
+        width: 25px;
+        transform: rotate(45deg);
+
+        border-radius: 0;
+
+        transition: top 0.3s 0s, left 0.3s 0.3s, width 0.3s 0.3s,
+          transform 0.3s 0.3s;
+      }
+
+      &::before {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .toggle-icon {
+    width: 6.25px;
+    height: 6.25px;
+    line-height: 6.25px;
+    border-radius: 50%;
+
+    &::after,
+    &::before {
+      display: block;
+      width: 6.25px;
+      height: 6.25px;
+      line-height: 6.25px;
+      border-radius: 50%;
+      transition: top 0.3s 0.3s, left 0.3s 0s, width 0.3s 0s, transform 0.3s 0s;
+    }
+
+    &::after {
+      top: 10px;
+    }
+
+    &::before {
+      top: -10px;
+    }
+  }
+}
+
+.main-nav {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+
+  display: block;
+  width: 270px;
+  padding: 4px;
+  padding-top: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  transform: translateX(-300px);
+  transition: 0.3s transform cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+  background: $main-bg;
+
+  @include media-breakpoint-up(lg) {
+    position: static;
+    z-index: 10;
+    top: 135px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    transform: translate(0);
+    overflow: unset;
+    background-color: transparent;
+
+    &.scrolled {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: unset;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: $main-bg;
+      color: #fff;
+
+      .main-nav__logo {
+        max-width: 150px;
+      }
+    }
+  }
+
+  &.open {
+    transform: translateX(0px);
+    z-index: 10;
+  }
+
+  &__list {
+    padding: 0;
+    list-style: none;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(xl) {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0;
+
+      margin-left: calc(8.333% - 30px);
+      margin-right: calc(8.333% - 30px);
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .main-nav__link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 150px;
+    }
+
+    a {
+      display: block;
+      padding: 13px 40px 13px 15px;
+
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #fff;
+      cursor: pointer;
+
+      &.active,
+      &:hover {
+        color: $main-bg;
+        background: #fff;
+        text-decoration: none;
+
+        @include media-breakpoint-up(lg) {
+          color: $accent;
+          background: transparent;
+        }
+      }
+    }
+
+    li {
+      margin-top: 5px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 20px;
+
+      @include media-breakpoint-up(lg) {
+        padding-left: 0;
+      }
+
+      li {
+        @include media-breakpoint-up(lg) {
+          padding-left: 10px;
+        }
+
+        &:hover {
+          background-color: $main-bg;
+          color: #fff;
+        }
+      }
+
+      a {
+        text-transform: initial;
+        font-size: 14px;
+        transition: 0.2s ease-in;
+        @include media-breakpoint-up(lg) {
+          color: #000000;
+        }
+
+        &:hover {
+          transform: translateX(5px);
+          color: #fff !important;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+      max-width: 250px;
+    }
+
+    margin-left: calc(8.333% - 30px);
+    padding-left: 10px;
+
+    .logo {
+      opacity: 1;
+      visibility: visible;
+      transition: 0.2s ease;
+    }
+  }
+}
