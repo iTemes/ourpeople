@@ -1,0 +1,54 @@
+.features {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: 290px;
+  background-image: url(../images/dist/villa-house.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-color: $main-bg;
+}
+
+.features-list {
+  padding: 0;
+  margin-top: 160px;
+  margin-bottom: 0;
+  padding: 71px 48px 20px 44px;
+
+  list-style: none;
+
+  background-color: $accent;
+  color: #fff;
+  font-family: $secondfont;
+}
+
+.features-item {
+  position: relative;
+
+  padding-bottom: 10px;
+  margin-bottom: 88px;
+
+  border-bottom: 1px solid #fff;
+  &__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 43px;
+
+    margin-bottom: 1em;
+  }
+
+  &__text {
+    font-family: $userfont;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 27px;
+    color: #b5b1ad;
+  }
+
+  &__number {
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+  }
+}

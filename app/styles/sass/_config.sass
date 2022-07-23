@@ -1,32 +1,21 @@
 // USER VARIABLES SECTION
 
-$accent: #ecb355 // Accent Color
-$blue: #007bff
-$indigo: #6610f2
-$purple: #6f42c1
-$light-purple: #4555b9
-$pink: #e83e8c
-$red: #dc3545
-$orange: #fd7e14
-$yellow: #ffc107
-$green: #28a745
-$teal: #20c997
-$cyan: #17a2b8
+$accent: #2C2C2C // Accent Color
 $white: #f1f4fc
-$gray: #868e96
-$gray-dark: #343a40
-$main-bg: #0f111e
+$main-bg: #FFFAF4
 
 $fontsize: 16px // Body Font Size
-$textcolor: #737373 // Text Color
-$lineheight: 1.65 // Document Line Height
-$userfont: Roboto, sans-serif // User Font Family
+$textcolor: #2C2C2C
+$light-textcolor: #FFFAF4 // Text Color
+$lineheight: 22px // Document Line Height
+$userfont: OpenSans, sans-serif // User Font Family
+$secondfont: PlayfairDisplay, sans-serif // User Font Family
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
 $desctop-width: 1124px
 $tablet-width: 767px
 
 // Bootstrap compatible gutter variable => $gutter
-$grid-gutter-width: 30px
+$grid-gutter-width: 60px
 $gutter: $grid-gutter-width
 $grid-breakpoints: (xs: 0, sm: 540px, md: 720px, lg: 960px, xl: 1200px, xxl: 1800px)
 $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px, xxl: 1800px)
@@ -51,10 +40,14 @@ $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px, xxl: 1800px
 		src: url($furl) format('woff2')
 		font-display: swap
 
-@include font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2')
-@include font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2')
-@include font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2')
-@include font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+@include font('OpenSans', normal, 300, '../fonts/OpenSans-Light.woff2')
+@include font('OpenSans', normal, 400, '../fonts/OpenSans-Regular.woff2')
+@include font('OpenSans', normal, 600, '../fonts/OpenSans-SemiBold.woff2')
+@include font('OpenSans', normal, 700, '../fonts/OpenSans-Bold.woff2')
+
+@include font('PlayfairDisplay', normal, 400, '../fonts/PlayfairDisplay-Regular.woff2')
+@include font('PlayfairDisplay', normal, 700, '../fonts/PlayfairDisplay-Bold.woff2')
+
 
 
 // GENERAL DOCUMENT STYLES

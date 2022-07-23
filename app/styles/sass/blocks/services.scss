@@ -1,14 +1,33 @@
 .services {
-  padding: 25px 0;
+  padding-top: 93px;
   background-color: $main-bg;
-  color: #ffffff;
 
   @include media-breakpoint-up(lg) {
-    padding-top: 50px;
-    padding-bottom: 50px;
   }
 
   &__item {
-    margin-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+
+    background-color: $accent;
   }
+
+  &__title {
+    padding-bottom: 10px;
+    margin: 0;
+
+    border-bottom: 1px solid #fff;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #fff;
+  }
+}
+
+.services-list {
+  padding: 0;
+  list-style: none;
 }
