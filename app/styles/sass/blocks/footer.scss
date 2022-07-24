@@ -1,34 +1,61 @@
 .page-footer {
-  padding-top: 10px;
+  padding: 55px 25px;
 
-  background-color: $main-bg;
+  background-color: $accent;
 
-  h5 {
-    color: #fff;
-  }
+  &__slogan {
+    margin-top: 0;
+    margin-bottom: 50px;
 
-  p {
-    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 26px;
+    text-align: center;
 
-    color: #b8b8b8;
+    color: #ffffff;
   }
 }
 
-.footer-info {
-  padding-top: 40px;
-  padding-bottom: 20px;
+.footer-wrapper {
+  padding: 35px 0;
 
-  @include media-breakpoint-up(lg) {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
+  border-bottom: 1px solid #b5b1ad;
+  border-top: 1px solid #b5b1ad;
 }
 
 .footer-block {
-  margin-bottom: 60px;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 
-.copyright {
-  font-size: 12px;
-  text-align: center;
+  p,
+  a {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: uppercase;
+
+    color: #dcd8d3;
+  }
+  a {
+    text-decoration: underline;
+  }
+
+  .footer-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+
+    li + li {
+      margin-left: 0;
+    }
+    li {
+      margin-bottom: 14px;
+    }
+    a {
+      font-size: 18px;
+    }
+  }
 }

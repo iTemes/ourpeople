@@ -7,36 +7,32 @@
 <!--#set var="ogUrl" value="/" -->
 <!DOCTYPE html>
 <html>
+  <head itemscope itemtype="http://schema.org/WPHeader">
+    <meta charset="utf-8" />
+    <title itemprop="headline"><!--#echo var="title" --></title>
+    <meta itemprop="description" name="description" content="#Нужно заполнить" />
+    <meta itemprop="keywords" name="keywords" content="#Нужно заполнить" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/app.min.css" />
+    <!--#include virtual="/parts/favicon.html" -->
+    <!--#include virtual="/parts/metrika.html" -->
+    <!--#include virtual="/parts/og.html" -->
+  </head>
 
-<head itemscope itemtype="http://schema.org/WPHeader">
-	<meta charset="utf-8" />
-	<title itemprop="headline">
-		<!--#echo var="title" -->
-	</title>
-	<meta itemprop="description" name="description" content="#Нужно заполнить" />
-	<meta itemprop="keywords" name="keywords" content="#Нужно заполнить" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="css/app.min.css" />
-	<!--#include virtual="/parts/favicon.html" -->
-	<!--#include virtual="/parts/metrika.html" -->
-	<!--#include virtual="/parts/og.html" -->
-</head>
+  <body>
+    <!--#include virtual="/parts/header.html" -->
 
-<body>
-	<!--#include virtual="/parts/header.html" -->
+    <main class="layout">
+      <h1 class="visually-hidden">Агентство недвижимости - Наши люди</h1>
+      <!--#include virtual="/parts/hero.html" -->
+      <!--#include virtual="/parts/about.html" -->
+      <!--#include virtual="/parts/services.html" -->
+      <!--#include virtual="/parts/request.html" -->
+      <!--#include virtual="/parts/features.html" -->
+      <!--#include virtual="/parts/reviews.html" -->
+    </main>
 
-	<main class="layout">
-		<h1 class="visually-hidden">Агентство недвижимости - Наши люди</h1>
-		<!--#include virtual="/parts/hero.html" -->
-		<!--#include virtual="/parts/about.html" -->
-		<!--#include virtual="/parts/services.html" -->
-		<!--#include virtual="/parts/request.html" -->
-		<!--#include virtual="/parts/features.html" -->
-		<!--#include virtual="/parts/reviews.html" -->
-	</section>
-
-	<!--#include virtual="/parts/footer.html" -->
-	<script src="js/app.min.js"></script>
-</body>
-
+    <!--#include virtual="/parts/footer.html" -->
+    <script src="js/app.min.js"></script>
+  </body>
 </html>
