@@ -1,0 +1,106 @@
+<section class="request-big-form">
+  <p>Оставьте заявку на продажу или аренду квартиры и узнайте ее рыночную стоимость</p>
+  <form action="">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="reqbig-name" name="name" placeholder="Имя" required="required" />
+      <label for="reqbig-name">ИМЯ</label>
+    </div>
+
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="reqbig-address"
+        name="address"
+        placeholder="Адрес"
+        required="required"
+      />
+      <label for="reqbig-address">ГОРОД, УЛИЦА И НОМЕР ДОМА</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="number" class="form-control" id="reqbig-floor" name="floor" placeholder="Этаж" required="required" />
+      <label for="reqbig-floor">Этаж</label>
+    </div>
+
+    <div class="form-floating">
+      <input
+        type="number"
+        class="form-control"
+        id="reqbig-square"
+        name="square"
+        placeholder="Площадь"
+        required="required"
+      />
+      <label for="reqbig-square">Площадь</label>
+    </div>
+
+    <div class="form-floating mb-4">
+      <input
+        type="number"
+        class="form-control"
+        id="reqbig-rooms"
+        name="rooms"
+        placeholder="Количество комнат"
+        required="required"
+      />
+      <label for="reqbig-rooms">Количество комнат</label>
+    </div>
+
+    <div class="mb-4">
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="reqbig-check-sail"
+          name="reqbig-check-sail"
+          value="Продажа"
+        />
+        <label class="form-check-label" for="reqbig-check-sail">Продажа</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="reqbig-check-rent"
+          name="reqbig-check-rent"
+          value="Аренда"
+        />
+        <label class="form-check-label" for="reqbig-check-rent">Аренда</label>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <p class="mb-4">Ремонт</p>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="repair" id="repair-without" value="БЕЗ РЕМОНТА" />
+        <label class="form-check-label" for="repair-without">БЕЗ РЕМОНТА</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="repair" id="repair-cosmetics" value="КОСМЕТИЧЕСКИЙ" />
+        <label class="form-check-label" for="repair-cosmetics">КОСМЕТИЧЕСКИЙ</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="repair" id="repair-euro" value="ЕВРО" />
+        <label class="form-check-label" for="repair-euro">ЕВРО</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="repair" id="repair-other" value="Другой" />
+        <label class="form-check-label" for="repair-other">Другой</label>
+      </div>
+    </div>
+
+    <div class="form-floating mb-5">
+      <input
+        type="tel"
+        class="form-control"
+        id="reqbig-tel"
+        name="phone"
+        placeholder="Номер телефона"
+        required="required"
+      />
+      <label for="req-tel">Номер телефона</label>
+    </div>
+    <button class="button" type="submit">Отправить</button>
+  </form>
+</section>

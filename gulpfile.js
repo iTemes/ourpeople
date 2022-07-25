@@ -1,37 +1,37 @@
-let preprocessor = "sass", // Preprocessor (sass, less, styl); 'sass' also work with the Scss syntax in blocks/ folder.
-  fileswatch = "html,htm,txt,json,md,woff2"; // List of files extensions for watching & hard reload
+let preprocessor = 'sass', // Preprocessor (sass, less, styl); 'sass' also work with the Scss syntax in blocks/ folder.
+  fileswatch = 'html,htm,txt,json,md,woff2'; // List of files extensions for watching & hard reload
 
-import pkg from "gulp";
+import pkg from 'gulp';
 const { gulp, src, dest, parallel, series, watch } = pkg;
 
-import browserSync from "browser-sync";
-import bssi from "browsersync-ssi";
-import ssi from "ssi";
-import webpackStream from "webpack-stream";
-import webpack from "webpack";
-import TerserPlugin from "terser-webpack-plugin";
-import gulpSass from "gulp-sass";
-import dartSass from "sass";
-import sassglob from "gulp-sass-glob";
+import browserSync from 'browser-sync';
+import bssi from 'browsersync-ssi';
+import ssi from 'ssi';
+import webpackStream from 'webpack-stream';
+import webpack from 'webpack';
+import TerserPlugin from 'terser-webpack-plugin';
+import gulpSass from 'gulp-sass';
+import dartSass from 'sass';
+import sassglob from 'gulp-sass-glob';
 const sass = gulpSass(dartSass);
-import less from "gulp-less";
-import lessglob from "gulp-less-glob";
-import styl from "gulp-stylus";
-import stylglob from "gulp-noop";
-import postCss from "gulp-postcss";
-import cssnano from "cssnano";
-import autoprefixer from "autoprefixer";
-import imagemin from "gulp-imagemin";
-import changed from "gulp-changed";
-import concat from "gulp-concat";
-import rsync from "gulp-rsync";
-import del from "del";
+import less from 'gulp-less';
+import lessglob from 'gulp-less-glob';
+import styl from 'gulp-stylus';
+import stylglob from 'gulp-noop';
+import postCss from 'gulp-postcss';
+import cssnano from 'cssnano';
+import autoprefixer from 'autoprefixer';
+import imagemin from 'gulp-imagemin';
+import changed from 'gulp-changed';
+import concat from 'gulp-concat';
+import rsync from 'gulp-rsync';
+import del from 'del';
 
 function browsersync() {
   browserSync.init({
     server: {
-      baseDir: "app/",
-      middleware: bssi({ baseDir: "app/", ext: ".html" }),
+      baseDir: 'app/',
+      middleware: bssi({ baseDir: 'app/', ext: '.html' }),
     },
     ghostMode: { clicks: false },
     notify: false,
@@ -41,17 +41,17 @@ function browsersync() {
 }
 
 function scripts() {
-  return src(["app/js/*.js", "!app/js/*.min.js"])
+  return src(['app/js/*.js', '!app/js/*.min.js', './node_modules/bootstrap/js/dist/modal.js'])
     .pipe(
       webpackStream(
         {
-          mode: "production",
+          mode: 'production',
           performance: { hints: false },
           plugins: [
             new webpack.ProvidePlugin({
-              $: "jquery",
-              jQuery: "jquery",
-              "window.jQuery": "jquery",
+              $: 'jquery',
+              jQuery: 'jquery',
+              'window.jQuery': 'jquery',
             }), // jQuery (npm i jquery)
           ],
           module: {
@@ -60,10 +60,10 @@ function scripts() {
                 test: /\.m?js$/,
                 exclude: /(node_modules)/,
                 use: {
-                  loader: "babel-loader",
+                  loader: 'babel-loader',
                   options: {
-                    presets: ["@babel/preset-env"],
-                    plugins: ["babel-plugin-root-import"],
+                    presets: ['@babel/preset-env'],
+                    plugins: ['babel-plugin-root-import'],
                   },
                 },
               },
@@ -82,117 +82,95 @@ function scripts() {
         webpack
       )
     )
-    .on("error", (err) => {
-      this.emit("end");
+    .on('error', (err) => {
+      this.emit('end');
     })
-    .pipe(concat("app.min.js"))
-    .pipe(dest("app/js"))
+    .pipe(concat('app.min.js'))
+    .pipe(dest('app/js'))
     .pipe(browserSync.stream());
 }
 
 function styles() {
-  return src([
-    `app/styles/${preprocessor}/*.*`,
-    `!app/styles/${preprocessor}/_*.*`,
-  ])
+  return src([`app/styles/${preprocessor}/*.*`, `!app/styles/${preprocessor}/_*.*`])
     .pipe(eval(`${preprocessor}glob`)())
-    .pipe(eval(preprocessor)({ "include css": true }))
+    .pipe(eval(preprocessor)({ 'include css': true }))
     .pipe(
       postCss([
-        autoprefixer({ grid: "autoplace" }),
+        autoprefixer({ grid: 'autoplace' }),
         cssnano({
-          preset: ["default", { discardComments: { removeAll: true } }],
+          preset: ['default', { discardComments: { removeAll: true } }],
         }),
       ])
     )
-    .pipe(concat("app.min.css"))
-    .pipe(dest("app/css"))
+    .pipe(concat('app.min.css'))
+    .pipe(dest('app/css'))
     .pipe(browserSync.stream());
 }
 
 function images() {
-  return src(["app/images/src/**/*"])
-    .pipe(changed("app/images/dist"))
+  return src(['app/images/src/**/*'])
+    .pipe(changed('app/images/dist'))
     .pipe(imagemin())
-    .pipe(dest("app/images/dist"))
+    .pipe(dest('app/images/dist'))
     .pipe(browserSync.stream());
 }
 
 function buildcopy() {
   return src(
     [
-      "{app/js,app/css}/*.min.*",
-      "app/images/**/*.*",
-      "!app/images/src/**/*",
-      "app/fonts/**/*",
-      "app/.htaccess",
-      "app/site.webmanifest",
-      "app/browserconfig.xml",
-      "app/favicon.ico",
-      "app/*.png",
+      '{app/js,app/css}/*.min.*',
+      'app/images/**/*.*',
+      '!app/images/src/**/*',
+      'app/fonts/**/*',
+      'app/.htaccess',
+      'app/site.webmanifest',
+      'app/browserconfig.xml',
+      'app/favicon.ico',
+      'app/*.png',
     ],
     {
-      base: "app/",
+      base: 'app/',
     }
-  ).pipe(dest("dist"));
+  ).pipe(dest('dist'));
 }
 
 async function buildhtml() {
-  let includes = new ssi("app/", "dist/", "/**/*.html");
+  let includes = new ssi('app/', 'dist/', '/**/*.html');
   includes.compile();
-  del("dist/parts", { force: true });
+  del('dist/parts', { force: true });
 }
 
 async function cleandist() {
-  del("dist/**/*", { force: true });
+  del('dist/**/*', { force: true });
 }
 
 function deploy() {
-  return src("dist/").pipe(
+  return src('dist/').pipe(
     rsync({
-      root: "dist/",
+      root: 'dist/',
       //   hostname: "cl22895@vh372.timeweb.ru",
       //   destination: "/home/c/cl22895/public_html",
       // clean: true, // Mirror copy with file deletion
-      include: ["*.htaccess"], // Included files to deploy,
-      exclude: ["**/Thumbs.db", "**/*.DS_Store"],
+      include: ['*.htaccess'], // Included files to deploy,
+      exclude: ['**/Thumbs.db', '**/*.DS_Store'],
       recursive: true,
       archive: true,
       silent: false,
       compress: true,
-      chmod: "ugo=rwX",
+      chmod: 'ugo=rwX',
     })
   );
 }
 
 function startwatch() {
   watch(`app/styles/${preprocessor}/**/*`, { usePolling: true }, styles);
-  watch(
-    ["app/js/**/*.js", "!app/js/**/*.min.js"],
-    { usePolling: true },
-    scripts
-  );
-  watch("app/images/src/**/*", { usePolling: true }, images);
-  watch(`app/**/*.{${fileswatch}}`, { usePolling: true }).on(
-    "change",
-    browserSync.reload
-  );
+  watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts);
+  watch('app/images/src/**/*', { usePolling: true }, images);
+  watch(`app/**/*.{${fileswatch}}`, { usePolling: true }).on('change', browserSync.reload);
 }
 
 export { scripts, styles, images, deploy };
 export let assets = series(scripts, styles, images);
-export let build = series(
-  cleandist,
-  images,
-  scripts,
-  styles,
-  buildcopy,
-  buildhtml
-);
+export let build = series(cleandist, images, scripts, styles, buildcopy, buildhtml);
 
-export default series(
-  scripts,
-  styles,
-  images,
-  parallel(browsersync, startwatch)
-);
+export default series(scripts, styles, images, parallel(browsersync, startwatch));

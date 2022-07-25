@@ -1,0 +1,44 @@
+.request-modal {
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 26px;
+
+  color: #2c2c2c;
+  background-color: $main-bg;
+
+  .modal-header {
+    margin-top: 50px;
+    border: none;
+  }
+
+  form {
+    margin-top: 30px;
+  }
+
+  button {
+    color: #a29f9c;
+  }
+}
+
+.request-big-form {
+  padding: 44px 30px;
+
+  background-color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: #a29f9c;
+
+  p {
+    margin-bottom: 20px;
+    color: #2c2c2c;
+    font-size: 19px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+
+  button {
+    color: #a29f9c;
+  }
+}

@@ -19,13 +19,24 @@ $grid-gutter-width: 60px
 $gutter: $grid-gutter-width
 $grid-breakpoints: (xs: 0, sm: 540px, md: 720px, lg: 960px, xl: 1200px, xxl: 1800px)
 $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px, xxl: 1800px)
+$input-focus-box-shadow: rgba(174, 174, 174, 0.25)
+$input-focus-border-color: #6f6f6f
+$form-check-input-checked-color: #fff
+$form-check-input-checked-bg-color:#000
+$form-check-input-focus-box-shadow:#000
+$btn-focus-box-shadow:#000
+$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-checked-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/></svg>")
+
 
 // IMPORT SECTION
 
 @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
 @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
 @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+@import 'node_modules/bootstrap/scss/_forms.scss' // Optional Bootstrap Forms
+@import 'node_modules/bootstrap/scss/_modal.scss' // Optional Bootstrap Modal
 @import 'node_modules/bootstrap/scss/_variables.scss' // Optional Bootstrap variable
+@import 'node_modules/bootstrap/scss/helpers/_visually-hidden.scss' // Optional Bootstrap Tables
 @import 'node_modules/bootstrap/scss/helpers/_visually-hidden.scss' // Optional Bootstrap Tables
 
 // @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites

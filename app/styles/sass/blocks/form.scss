@@ -1,0 +1,73 @@
+form {
+  .form-control {
+    margin-bottom: 20px;
+
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #a29f9c;
+
+    background-color: transparent;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #a29f9c;
+  }
+
+  .form-floating {
+    > label {
+      top: 10px;
+      padding-left: 0;
+    }
+    .form-control:focus ~ label {
+      top: 0;
+    }
+  }
+
+  .form-check-input {
+    background: transparent;
+
+    &[type='checkbox'],
+    &[type='radio'] {
+      border-radius: 0;
+      border-width: 3px;
+    }
+
+    &:checked + .form-check-label {
+      color: #000;
+    }
+
+    & + .form-check-label {
+      user-select: none;
+    }
+  }
+
+  label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #a29f9c;
+  }
+
+  textarea.form-control {
+    min-height: 150px;
+  }
+}
+
+.lead-request {
+  padding: 40px 30px;
+
+  background-color: #fff;
+
+  h3 {
+    margin-bottom: 20px;
+
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 26px;
+
+    color: #2c2c2c;
+  }
+}
