@@ -21,8 +21,6 @@
       position: static;
       justify-content: center;
       background-color: transparent;
-
-      display: none;
     }
   }
 
@@ -37,13 +35,27 @@
       }
     }
   }
+
+  @include media-breakpoint-up(lg) {
+    position: fixed;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 41px;
+    padding-bottom: 41px;
+
+    &__wrapper {
+      height: auto;
+    }
+  }
 }
 
 .logo {
   max-width: 150px;
   @include media-breakpoint-up(lg) {
-    opacity: 0;
-    visibility: hidden;
+    max-width: unset;
   }
 }
 
@@ -119,6 +131,10 @@
       }
     }
   }
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
 }
 
 .main-nav {
@@ -143,36 +159,6 @@
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
   background: $main-bg;
 
-  @include media-breakpoint-up(lg) {
-    position: static;
-    z-index: 10;
-    top: 135px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-
-    transform: translate(0);
-    overflow: unset;
-    background-color: transparent;
-
-    &.scrolled {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: unset;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      background: $main-bg;
-      color: #fff;
-    }
-  }
-
   &.open {
     transform: translateX(0px);
     z-index: 10;
@@ -181,76 +167,24 @@
   &__list {
     padding: 0 30px;
     list-style: none;
+  }
+  &__item {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  &__link {
+    display: block;
+    padding: 5px 0;
 
-    @include media-breakpoint-up(lg) {
-      display: flex;
-      margin-bottom: 0;
-    }
+    font-weight: 400;
+    font-size: $fontsize;
+    line-height: $lineheight;
+    text-transform: uppercase;
+    color: $textcolor;
+    cursor: pointer;
 
-    @include media-breakpoint-up(xl) {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 0;
-
-      margin-left: calc(8.333% - 30px);
-      margin-right: calc(8.333% - 30px);
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .main-nav__link {
-      display: block;
-      padding: 5px 0;
-
-      font-weight: 400;
-      font-size: $fontsize;
-      line-height: $lineheight;
-      text-transform: uppercase;
-      color: $textcolor;
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.7;
-      }
-    }
-
-    li {
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 20px;
-
-      @include media-breakpoint-up(lg) {
-        padding-left: 0;
-      }
-
-      li {
-        @include media-breakpoint-up(lg) {
-          padding-left: 10px;
-        }
-
-        &:hover {
-          background-color: $main-bg;
-          color: #fff;
-        }
-      }
-
-      a {
-        text-transform: initial;
-        font-size: 14px;
-        transition: 0.2s ease-in;
-        @include media-breakpoint-up(lg) {
-          color: #000000;
-        }
-
-        &:hover {
-          transform: translateX(5px);
-          color: #fff !important;
-        }
-      }
+    &:hover {
+      opacity: 0.7;
     }
   }
 
@@ -273,21 +207,59 @@
     }
   }
 
-  &__logo {
-    display: none;
+  @include media-breakpoint-up(lg) {
+    position: static;
+    z-index: 10;
 
-    @include media-breakpoint-up(lg) {
-      display: block;
-      max-width: 250px;
+    align-items: flex-end;
+    width: 100%;
+
+    transform: translate(0);
+    overflow: unset;
+    background-color: transparent;
+    box-shadow: none;
+
+    &.scrolled {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: unset;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: $main-bg;
+      color: #fff;
     }
 
-    margin-left: calc(8.333% - 30px);
-    padding-left: 10px;
+    &__contacts {
+      display: none;
+    }
+    &__list {
+      display: flex;
+      margin-bottom: 0;
 
-    .logo {
-      opacity: 1;
-      visibility: visible;
-      transition: 0.2s ease;
+      li + li {
+        margin-left: 34px;
+      }
+    }
+    &__link {
+      color: #fff;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    &__list {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0;
+
+      margin-left: calc(8.333% - 30px);
+      margin-right: calc(8.333% - 30px);
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }

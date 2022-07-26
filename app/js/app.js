@@ -1,12 +1,24 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 
-window.jQuery = $;
-window.$ = $;
+// window.jQuery = $;
+// window.$ = $;
+
+import Modal from 'bootstrap/js/dist/modal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  //nav
   const header = document.querySelector('.header');
   const navToogle = document.querySelector('.nav-toogle');
   const mainNav = document.querySelector('.main-nav');
+
+  // forms
+  const consultationForm = document.getElementById('consultation-form');
+  const secondConsultationForm = document.getElementById('consultation-form-second');
+  const requestBigForm = document.getElementById('request-big-form');
+
+  // modals
+  const modalSuccess = new Modal(document.getElementById('form-success'));
+  const requestModal = new Modal(document.getElementById('request-modal'));
 
   $("a[href^='#']").on('click', function () {
     const _href = $(this).attr('href');
@@ -38,6 +50,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function handleConsultationFromSubmit(evt) {
+    evt.preventDefault();
+    const data = new FormData(evt.target);
+    console.log('Добавить обработку форму', data);
+
+    evt.target.reset();
+
+    requestModal.hide();
+    modalSuccess.show();
+  }
+
   navToogle.addEventListener('click', handleNavToogle);
-  navBarScroll();
+
+  consultationForm.addEventListener('submit', handleConsultationFromSubmit);
+  secondConsultationForm.addEventListener('submit', handleConsultationFromSubmit);
+  requestBigForm.addEventListener('submit', handleConsultationFromSubmit);
+
+  // navBarScroll();
 });

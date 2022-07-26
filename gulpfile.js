@@ -41,7 +41,7 @@ function browsersync() {
 }
 
 function scripts() {
-  return src(['app/js/*.js', '!app/js/*.min.js', './node_modules/bootstrap/js/dist/modal.js'])
+  return src(['app/js/*.js', '!app/js/*.min.js'])
     .pipe(
       webpackStream(
         {
@@ -83,7 +83,7 @@ function scripts() {
       )
     )
     .on('error', (err) => {
-      this.emit('end');
+      console.log('Err', err);
     })
     .pipe(concat('app.min.js'))
     .pipe(dest('app/js'))

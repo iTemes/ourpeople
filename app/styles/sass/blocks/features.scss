@@ -2,15 +2,22 @@
   padding-top: 50px;
   padding-bottom: 50px;
   min-height: 290px;
-  background-image: url(../images/dist/villa-house.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-attachment: scroll;
+  // background-image: url(../images/dist/villa-house.jpg);
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  // background-position: center top;
+  // background-attachment: scroll;
   background-color: $main-bg;
+
+  @include media-breakpoint-up(lg) {
+    position: relative;
+  }
 }
 
 .features-list {
+  position: relative;
+  z-index: 1;
+
   padding: 0;
   margin-top: 160px;
   margin-bottom: 0;
@@ -50,5 +57,26 @@
     position: absolute;
     right: 0;
     bottom: -40px;
+  }
+}
+
+.features-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+  height: 100%;
+  width: 100%;
+
+  background-image: url(../images/dist/villa-house.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    background-attachment: fixed;
   }
 }

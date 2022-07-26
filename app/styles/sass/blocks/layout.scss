@@ -3,4 +3,13 @@
   flex-grow: 1;
 
   background-color: $main-bg;
+
+  > section:not(.features) {
+    position: relative;
+    z-index: 1;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 0;
+  }
 }

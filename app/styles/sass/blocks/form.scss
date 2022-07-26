@@ -20,7 +20,8 @@ form {
       top: 10px;
       padding-left: 0;
     }
-    .form-control:focus ~ label {
+    .form-control:focus ~ label,
+    .form-control:not(:placeholder-shown) ~ label {
       top: 0;
     }
   }
@@ -67,6 +68,45 @@ form {
     font-weight: 600;
     font-size: 19px;
     line-height: 26px;
+
+    color: #2c2c2c;
+  }
+}
+
+.form-success {
+  .modal-content {
+    height: 80vh;
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h2 {
+    margin-bottom: 100px;
+
+    font-family: $secondfont;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 43px;
+    text-align: center;
+    text-transform: initial;
+
+    color: #2c2c2c;
+  }
+
+  p {
+    margin-bottom: 90px;
+
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 26px;
+    text-align: center;
 
     color: #2c2c2c;
   }
