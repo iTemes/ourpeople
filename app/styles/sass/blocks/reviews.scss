@@ -2,11 +2,25 @@
   padding-top: 22px;
 
   background-color: #fff;
+
+  @include media-breakpoint-up(xl) {
+    padding-top: 60px;
+
+    h2 {
+      margin-bottom: 70px;
+    }
+  }
 }
 
 .reviews-list {
   padding: 0;
   list-style: none;
+
+  @include media-breakpoint-up(xl) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 26px;
+  }
 }
 
 .review-item {

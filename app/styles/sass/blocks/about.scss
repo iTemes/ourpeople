@@ -11,4 +11,18 @@
     line-height: 27px;
     text-align: center;
   }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 78px;
+
+    h2 {
+      margin-bottom: 50px;
+    }
+    &__text {
+      max-width: 1000px;
+
+      font-size: 25px;
+      line-height: 33px;
+    }
+  }
 }

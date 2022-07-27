@@ -2,7 +2,8 @@
   padding-top: 93px;
   background-color: $main-bg;
 
-  @include media-breakpoint-up(lg) {
+  &__wrapper {
+    padding: 0 15px;
   }
 
   &__item {
@@ -13,6 +14,10 @@
     margin-bottom: 22px;
 
     background-color: $accent;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__title {
@@ -25,10 +30,30 @@
     line-height: 27px;
     color: #fff;
   }
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 0;
+    padding-bottom: 93px;
+
+    &__wrapper {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    &__item {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .services-list {
   padding: 0;
   margin: 0;
   list-style: none;
+
+  @include media-breakpoint-up(lg) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
 }

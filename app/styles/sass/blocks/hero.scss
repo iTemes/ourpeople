@@ -7,7 +7,7 @@
   background-position: center top;
   background-color: $main-bg;
   &__wrapper {
-    padding: 0 30px;
+    padding: 0 15px;
     margin-top: 160px;
   }
 
@@ -18,8 +18,8 @@
     justify-content: center;
     padding-top: 45px;
     padding-bottom: 53px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
     max-width: 370px;
     margin: 0 auto;
 
@@ -42,7 +42,7 @@
   @include media-breakpoint-up(lg) {
     display: flex;
     padding-top: 0;
-    min-height: 70vh;
+    min-height: 600px;
 
     background: none;
 
@@ -50,11 +50,15 @@
       display: flex;
       flex-basis: 50%;
 
-      background-size: cover;
+      background-repeat: no-repeat;
       background-image: url(../images/dist/hero-desctop.jpg);
     }
 
     &__wrapper {
+      display: flex;
+      align-items: center;
+      padding: 0 70px;
+
       margin-top: 0;
       flex-basis: 50%;
       background: $accent;
@@ -63,13 +67,14 @@
     &__slogan {
       justify-content: flex-start;
       align-items: flex-start;
-      margin: 150px 0;
+      margin: 0;
       padding: 0;
 
       background: transparent;
       box-shadow: none;
 
       p {
+        margin-bottom: 65px;
         font-weight: 400;
         font-size: 34px;
         line-height: 46px;
@@ -78,10 +83,18 @@
         color: #fffaf4;
       }
     }
+
+    .button {
+      background-color: #fffaf4;
+      color: #2c2c2c;
+      margin: 0;
+    }
   }
 
-  @include media-breakpoint-up(xxl) {
+  @include media-breakpoint-up(xl) {
+    min-height: 70vh;
     .hero-bg {
+      background-size: cover;
       background-image: url(../images/dist/hero-desctop2x.jpg);
     }
   }

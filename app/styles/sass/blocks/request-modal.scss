@@ -18,10 +18,31 @@
   button {
     color: #a29f9c;
   }
+
+  @include media-breakpoint-up(xl) {
+    .modal-header {
+      margin-top: 70px;
+      padding-left: 50px;
+      padding-right: 50px;
+
+      p {
+        margin: 0;
+      }
+    }
+    .modal-body {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    .button {
+      margin: 0;
+      margin-bottom: 70px;
+    }
+  }
 }
 
 .request-big-form {
-  padding: 44px 30px;
+  padding: 44px 15px;
 
   background-color: #fff;
   font-weight: 600;
@@ -40,5 +61,30 @@
 
   button {
     color: #a29f9c;
+  }
+  &__bg {
+    display: none;
+  }
+
+  @include media-breakpoint-up(xl) {
+    display: flex;
+    padding: 0;
+
+    form {
+      width: 50%;
+      padding: 44px 70px;
+    }
+    &__bg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+
+      background: #adcec8;
+    }
+
+    .button {
+      margin: 0;
+    }
   }
 }
