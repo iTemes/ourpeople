@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-position: center top;
   background-color: $main-bg;
+
   &__wrapper {
     padding: 0 15px;
     margin-top: 160px;
@@ -35,6 +36,7 @@
       text-align: center;
     }
   }
+
   .hero-bg {
     display: none;
   }
@@ -96,6 +98,19 @@
     .hero-bg {
       background-size: cover;
       background-image: url(../images/dist/hero-desctop2x.jpg);
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    &__wrapper {
+      padding: 0 140px;
+    }
+    &__slogan {
+      max-width: unset;
+      p {
+        font-size: 49px;
+        line-height: 58px;
+      }
     }
   }
 }

@@ -87,4 +87,14 @@
       margin: 0;
     }
   }
+
+  @include media-breakpoint-up(xxl) {
+    form {
+      padding: 100px 140px;
+
+      p {
+        font-size: 24px;
+      }
+    }
+  }
 }

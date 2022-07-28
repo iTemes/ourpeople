@@ -25,4 +25,13 @@
       line-height: 33px;
     }
   }
+
+  @include media-breakpoint-up(xxl) {
+    padding-top: 100px;
+    &__text {
+      max-width: 1400px;
+      font-size: 34px;
+      line-height: 46px;
+    }
+  }
 }

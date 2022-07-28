@@ -35,6 +35,11 @@
     margin-top: 0;
     margin-left: auto;
   }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 100px;
+    max-width: 50%;
+  }
 }
 
 .features-item {
@@ -64,6 +69,32 @@
     position: absolute;
     right: 0;
     bottom: -40px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    &__number {
+      bottom: -55px;
+      svg {
+        width: 25px;
+        height: 35px;
+
+        path {
+          fill: #adcec8;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    &__title {
+      font-size: 38px;
+      line-height: 48px;
+    }
+
+    &__text {
+      font-size: 24px;
+      line-height: 34px;
+    }
   }
 }
 

@@ -21,6 +21,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 26px;
   }
+
+  @include media-breakpoint-up(xxl) {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
 }
 
 .review-item {
@@ -62,4 +67,12 @@
   color: #000;
   text-decoration: none;
   border-bottom: 1px solid #2c2c2c;
+
+  &:hover {
+    color: #adcec8;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    font-size: 21px;
+  }
 }

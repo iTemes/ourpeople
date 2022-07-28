@@ -62,7 +62,7 @@ form {
 
   @include media-breakpoint-up(xl) {
     textarea.form-control {
-      min-height: unset;
+      min-height: 100px;
     }
   }
 }
@@ -115,6 +115,16 @@ form {
       justify-content: center;
 
       background: #adcec8;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    &__wrapper {
+      padding: 100px 140px;
+    }
+
+    h3 {
+      font-size: 24px;
     }
   }
 }

@@ -23,4 +23,11 @@
       padding: 0 70px;
     }
   }
+
+  @include media-breakpoint-up(xxl) {
+    margin-top: -191px;
+    &__wrapper {
+      padding: 0 140px;
+    }
+  }
 }
