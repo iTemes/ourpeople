@@ -24,18 +24,6 @@
     }
   }
 
-  &.open {
-    .header__wrapper {
-      background: $main-bg;
-    }
-
-    .logo {
-      svg {
-        fill: $accent;
-      }
-    }
-  }
-
   @include media-breakpoint-up(lg) {
     display: flex;
     justify-content: space-between;
@@ -49,6 +37,20 @@
   }
   @include media-breakpoint-up(xxl) {
     padding: 70px 140px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    &.open {
+      .header__wrapper {
+        background: $main-bg;
+      }
+
+      .logo {
+        svg {
+          fill: $accent;
+        }
+      }
+    }
   }
 }
 
