@@ -148,9 +148,9 @@ function deploy() {
   return src('dist/').pipe(
     rsync({
       root: 'dist/',
-      //   hostname: "cl22895@vh372.timeweb.ru",
-      //   destination: "/home/c/cl22895/public_html",
-      // clean: true, // Mirror copy with file deletion
+      hostname: 'cf21544@vh360.timeweb.ru',
+      destination: '/home/c/cf21544/public_html',
+      clean: true, // Mirror copy with file deletion
       include: ['*.htaccess'], // Included files to deploy,
       exclude: ['**/Thumbs.db', '**/*.DS_Store'],
       recursive: true,
