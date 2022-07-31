@@ -127,6 +127,7 @@ function buildcopy() {
       'app/browserconfig.xml',
       'app/favicon.ico',
       'app/*.png',
+      'app/php/**/*.*',
     ],
     {
       base: 'app/',

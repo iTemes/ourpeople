@@ -54,10 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
     evt.preventDefault();
 
     const data = new FormData(evt.target);
-
+    console.log('data', data);
     $.ajax({
       url: './php/consultation.php',
       data: data,
+      processData: false, // add this here
       type: 'POST',
       success: function (data) {
         // For Notification
