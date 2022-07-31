@@ -8,7 +8,7 @@
    $name = test_input($_POST['name']);
    $phone = test_input($_POST['phone']);
    $comment = test_input($_POST['comment']);  
-   $to = "itemes@mail.ru";
+   $to = "martyn_1987@mail.ru";
    $subject = "Заявка на консультацию";
    $email = "info@cvoiludi.ru";
    // Email Template

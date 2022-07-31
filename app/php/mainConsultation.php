@@ -14,7 +14,7 @@
    $rent = test_input($_POST['rent']);
    $repair = test_input($_POST['repair']);
 
-   $to = "itemes@mail.ru";
+   $to = "martyn_1987@mail.ru";
    $subject = "Заявка на  продажу и аренду";
    $email = "info@cvoiludi.ru";
    // Email Template
@@ -26,7 +26,7 @@
    $message .= "<b>Колличество комнат : </b>". $rooms ."<br>";
    $message .= "<b>Продажа : </b>". $sail ."<br>";
    $message .= "<b>Аренда : </b>". $rent ."<br>";
-   $message .= "<b>Ремонта : </b>". $repair ."<br>";
+   $message .= "<b>Ремонт : </b>". $repair ."<br>";
 
    // Для отправки HTML-письма должен быть установлен заголовок Content-type
    $headers  = 'MIME-Version: 1.0' . "\n" . 
