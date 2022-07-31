@@ -52,13 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleConsultationFromSubmit(evt) {
     evt.preventDefault();
+    const formEl = evt.target;
 
-    const data = new FormData(evt.target);
+    // const data = new FormData(evt.target);
+    var data = {
+      name: $(formEl).find('#req-name').val(),
+      phone: $(formEl).find('#req-phone').val(),
+      contact: $(formEl).find('#req-comment').val(),
+    };
     console.log('data', data);
     $.ajax({
       url: './php/consultation.php',
       data: data,
-      processData: false, // add this here
       type: 'POST',
       success: function (data) {
         // For Notification
