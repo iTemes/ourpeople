@@ -33,3 +33,7 @@ ExpiresByType application/xhtml+xml "access plus 600 seconds"
 AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript application/font-woff2 image/svg+xml
 
 </ifModule>
+
+php_value mail.add_x_header 1
+php_value mail.log /home/c/cf21544/public_html/mail.log
+php_flag display_errors 1

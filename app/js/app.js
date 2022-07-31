@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var data = {
       name: $(formEl).find('#req-name').val(),
       phone: $(formEl).find('#req-phone').val(),
-      contact: $(formEl).find('#req-comment').val(),
+      comment: $(formEl).find('#req-comment').val(),
     };
     console.log('data', data);
     $.ajax({
@@ -76,6 +76,54 @@ document.addEventListener('DOMContentLoaded', () => {
           requestModal.hide();
         }
       },
+      error: function (data) {
+        evt.target.reset();
+        requestModal.hide();
+
+        console.log('error send mail', data);
+      },
+    });
+  }
+
+  function handleMainConsultationFromSubmit(evt) {
+    evt.preventDefault();
+    const formEl = evt.target;
+
+    // const data = new FormData(evt.target);
+    var data = {
+      name: $(formEl).find('#reqbig-name').val(),
+      phone: $(formEl).find('#reqbig-phone').val(),
+      address: $(formEl).find('#reqbig-address').val(),
+      floor: $(formEl).find('#reqbig-floor').val(),
+      square: $(formEl).find('#reqbig-square').val(),
+      rooms: $(formEl).find('#reqbig-rooms').val(),
+      sail: $(formEl).find('#reqbig-check-sail').val() ? 'Да' : 'Нет',
+      rent: $(formEl).find('#reqbig-check-rent').val() ? 'Да' : 'Нет',
+      repair: $(formEl).find('input[name="repair"]:checked').val() || 'Нет информации',
+    };
+    console.log('data', data);
+
+    $.ajax({
+      url: './php/mainConsultation.php',
+      data: data,
+      type: 'POST',
+      success: function (data) {
+        // For Notification
+        evt.target.reset();
+
+        requestModal.hide();
+        modalSuccess.show();
+        if (data.error) {
+          evt.target.reset();
+          requestModal.hide();
+        }
+      },
+      error: function (data) {
+        evt.target.reset();
+        requestModal.hide();
+
+        console.log('error send mail', data);
+      },
     });
   }
 
@@ -83,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   consultationForm.addEventListener('submit', handleConsultationFromSubmit);
   secondConsultationForm.addEventListener('submit', handleConsultationFromSubmit);
-  requestBigForm.addEventListener('submit', handleConsultationFromSubmit);
+  requestBigForm.addEventListener('submit', handleMainConsultationFromSubmit);
 
   // navBarScroll();
 });
