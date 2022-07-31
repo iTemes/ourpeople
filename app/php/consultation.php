@@ -9,6 +9,7 @@
    $phone = test_input($_POST['phone']);
    $comment = test_input($_POST['comment']);  
    $to = "martyn_1987@mail.ru";
+   // $to = "itemes@mail.ru";
    $subject = "Заявка на консультацию";
    $email = "info@cvoiludi.ru";
    // Email Template
@@ -18,7 +19,7 @@
 
    // Для отправки HTML-письма должен быть установлен заголовок Content-type
    $headers  = 'MIME-Version: 1.0' . "\n" . 
-      'Content-type: text/html; charset=iso-8859-1' . "\n" .
+      'Content-type: text/html; charset=UTF-8' . "\n" .
       'From: info@cvoiludi.ru' . "\n" . 
       'X-Mailer: PHP/' . phpversion();
 
