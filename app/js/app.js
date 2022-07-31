@@ -52,13 +52,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleConsultationFromSubmit(evt) {
     evt.preventDefault();
+
     const data = new FormData(evt.target);
-    console.log('Добавить обработку форму', data);
 
-    evt.target.reset();
+    $.ajax({
+      url: './php/consultation.php',
+      data: data,
+      type: 'POST',
+      success: function (data) {
+        // For Notification
+        evt.target.reset();
 
-    requestModal.hide();
-    modalSuccess.show();
+        requestModal.hide();
+        modalSuccess.show();
+        if (data.error) {
+          evt.target.reset();
+          requestModal.hide();
+        }
+      },
+    });
   }
 
   navToogle.addEventListener('click', handleNavToogle);
