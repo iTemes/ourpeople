@@ -123,6 +123,7 @@ function buildcopy() {
       '!app/images/src/**/*',
       'app/fonts/**/*',
       'app/.htaccess',
+      'app/sitemap.xml',
       'app/site.webmanifest',
       'app/browserconfig.xml',
       'app/favicon.ico',
@@ -151,7 +152,7 @@ function deploy() {
       root: 'dist/',
       hostname: 'cf21544@vh360.timeweb.ru',
       destination: '/home/c/cf21544/public_html',
-      clean: true, // Mirror copy with file deletion
+      // clean: true, // Mirror copy with file deletion
       include: ['*.htaccess'], // Included files to deploy,
       exclude: ['**/Thumbs.db', '**/*.DS_Store'],
       recursive: true,
