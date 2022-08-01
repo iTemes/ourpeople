@@ -124,6 +124,7 @@ function buildcopy() {
       'app/fonts/**/*',
       'app/.htaccess',
       'app/sitemap.xml',
+      'app/robots.txt',
       'app/site.webmanifest',
       'app/browserconfig.xml',
       'app/favicon.ico',
